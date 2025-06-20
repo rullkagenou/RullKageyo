@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Up Mobile Legends | Rull-Web</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #00bfff;
+      margin-bottom: 20px;
+    }
+    .option {
+      background: #1e293b;
+      border: 1px solid #00bfff;
+      padding: 15px;
+      margin: 10px auto;
+      border-radius: 10px;
+      max-width: 300px;
+      cursor: pointer;
+      color: #00eaff;
+      transition: background 0.3s;
+    }
+    .option:hover {
+      background: #00bfff;
+      color: white;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      background: #1e1e2e;
+      padding: 25px;
+      border-radius: 15px;
+      color: #00bfff;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    .popup-content button {
+      margin: 10px;
+      background: #00bfff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .popup-content button:hover {
+      background: #009acd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Top Up Mobile Legends</h1>
+
+  <div class="option" onclick="showConfirm('86 Diamond - Rp15.000')">86 Diamond – Rp15.000</div>
+  <div class="option" onclick="showConfirm('172 Diamond - Rp30.000')">172 Diamond – Rp30.000</div>
+  <div class="option" onclick="showConfirm('257 Diamond - Rp45.000')">257 Diamond – Rp45.000</div>
+
+  <div class="popup" id="confirmPopup">
+    <div class="popup-content">
+      <h3 id="selectedItem"></h3>
+      <p>Tap tombol di bawah untuk menuju ke whatsapp</p>
+      <a id="waLink" href="#" target="_blank">
+        <button>WhatsApp</button>
+      </a>
+      <button onclick="closePopup()">Batal</button>
+    </div>
+  </div>
+
+  <script>
+    function showConfirm(item) {
+      document.getElementById('selectedItem').innerText = item;
+      document.getElementById('waLink').href =
+        `https://wa.me/6283892730732?text=Halo%20Saya%20ingin%20topup%20Mobile%20Legends%20(${encodeURIComponent(item)})`;
+      document.getElementById('confirmPopup').style.display = 'flex';
+    }
+    function closePopup() {
+      document.getElementById('confirmPopup').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
